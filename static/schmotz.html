@@ -1,0 +1,88 @@
+<html>
+<head>
+<script type="text/javascript" src="/static/prototype.js"></script>
+<script type="text/javascript" src="/static/schmotz_dato.js"></script>
+<script type="text/javascript" src="/static/schmotz_ws.js"></script>
+<script type="text/javascript" src="/static/schmotz_canvas.js"></script>
+<!------------------------------ CANVaS-RELATED ----------------------------------->
+<script type="application/x-javascript">
+function init(){
+    var UN = (Math.round(Math.random()*99999999)).toString()
+    document.ws_port = ~s
+    ready();
+    $('user_name_input').value = UN 
+    document.canvas = $('canvas')
+    document.ctx = document.canvas.getContext("2d");
+    start_color = "rgba(0,0,200,0.5)";
+    document.ctx.strokeStyle = start_color
+    document.c_width = 700
+    document.c_height = 300
+    draw_bg();
+    s = get_dato_default_user_record(UN);
+    document.dato = $H({self:s
+                    });
+    //al_dato();
+    parse_dato_self();
+    document.c_m_posX = -100
+    document.c_m_posY = -100
+    document.movement_buffer = []
+}
+
+</script>
+
+  <title>jagst</title>
+ </head>
+ <body onload="init()">
+ <table>
+ <tbody>
+ <tr>
+ <td rowspan=4>
+   <canvas id="canvas" width="700" height="300" onmousedown="mouse_down(event)" onmouseup="mouse_up(event)" onclicK="canvas_click(event)" onmouseout="if (document.mouseDown) mouse_up(event)" onmousemove="canvas_move([event.pageX, event.pageY],true)">
+   </canvas>
+   <br/>
+   group:   <input type='text' id='group_input' value='one'>
+            <button onclick='draw_bg();send_user_input("{\"group\": \""+ document.getElementById("group_input").value + "\"}")'>send
+            </button>
+            <!--<button onclick='ws_send("{\"group\":\"get_group_list\"}",true)'>get group list
+            </button>-->
+            <br/>
+   username:<input type='text' id='user_name_input' value=''>
+            <button onclick='var un = $("user_name_input").value; send_user_input("{\"username\": \"" + un + "\"}"),$(mon_name).innerHTML=un'>send
+            </button>
+            <br/>
+   color:   <input type='text' id='color_input' value='rgb(22,22,222)'>
+            <button onclick='ws_send("{\"color\": \""+ $("color_input").value + "\"}",false);$(mon_color).innerHTML=$("color_input").value;$(mon_color).style.backgroundColor=$("color_input").value'>send</button>
+            <br/>
+            <button onclick='close_ws()'>close</button>
+            <button onclick='ready()'>reconnect</button>
+            <button onclick='draw_bg(); ws_send("\"clear\"", false);'>clear</button>
+            <br/>
+             <a href="#" onclick='ws_send("{\"lineWidth\":3}",false),$(mon_lW).innerHTML=3'>3</a>
+             <a href="#" onclick='ws_send("{\"lineWidth\":10}",false),$(mon_lW).innerHTML=10'>10</a>
+             <a href="#" onclick='ws_send("{\"lineWidth\":20}",false),$(mon_lW).innerHTML=20'>20</a>
+            | | | |
+            <a href="#" onclick='ws_send("{\"color\":\"rgba(100,100,10,0.2)\"}",false);$(mon_color).innerHTML="brown";$(mon_color).style.backgroundColor="rgba(100,100,10,0.6)"'>brown</a>
+            <a href="#" onclick='ws_send("{\"color\":\"rgba(50,250,50,0.8)\"}",false);$(mon_color).innerHTML="green";$(mon_color).style.backgroundColor="rgba(50,250,50,0.8)"'>green</a>
+
+ <td>
+ Name: <b><span id="mon_name"></span>
+ </td>
+ <tr>
+ <td nowrap="1">
+ LineWidth: <b><span id="mon_lW"></span>
+ </td>
+ <tr>
+ <td>
+ Color: <b><span id="mon_color"></span>
+ </td>
+ <tr>
+ <td>
+ Last active user: <b><span id="last_active_user"></span>
+ </td>
+            
+ </tbody>
+ </table>
+<p>
+<div id="status"></div>
+ </body>
+</html>
