@@ -1,0 +1,39 @@
+<html>
+<head>
+<script type="text/javascript" src="/static/prototype.js"></script>
+<script type="text/javascript" src="/static/deli_items.js"></script>
+<script type="text/javascript" src="/static/deli_dato.js"></script>
+<script type="text/javascript" src="/static/deli_ws.js"></script>
+<!------------------------------ CANVaS-RELATED --------------------------------- -->
+<script type="application/x-javascript">
+function init(){
+    document.ws_port = ~s;
+    ready();
+    init_dato();
+    //al_dato();
+    //parse_dato_self();
+}
+
+</script>
+
+  <title>jagst - deli</title>
+ </head>
+ <body onload="init()">
+ <table>
+ <tbody>
+ <tr>
+ <td>
+   
+   <br/>
+   enter tag you want to follow: <input type='text' id='tag_input' value='erlang'>
+            <button onclick='ws_send("{\"tags\":\"" + $("tag_input").value + "\"}");document.title=$("tag_input").value +" - jagst - deli"'>send
+            </button>
+    
+            
+ </tbody>
+ </table>
+<p>
+<div id="rotation"></div>
+<div id="status"></div>
+ </body>
+</html>
