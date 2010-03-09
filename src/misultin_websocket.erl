@@ -58,7 +58,7 @@ check(Path, Headers) ->
 
 % Connect and handshake with Websocket.
 connect(#ws{socket = Socket, origin = Origin, host = Host, path = Path} = Ws, WsLoop) ->
-	io:format("connecting socket ~p~nerlang:list_to_pid(\"~p\") ! {send, \"data\"}~n", [Socket,self()]),
+	io:format("connecting socket ~p~nerlang:list_to_pid(\"~p\") ! {send, \"data\"}.~nfor path ~p~n", [Socket,self(),Path]),
     ?LOG_DEBUG("received websocket handshake request", []),
 	HandshakeServer = ["HTTP/1.1 101 Web Socket Protocol Handshake\r\n",
 		"Upgrade: WebSocket\r\n",
@@ -70,7 +70,16 @@ connect(#ws{socket = Socket, origin = Origin, host = Host, path = Path} = Ws, Ws
 	misultin_socket:send(Socket, HandshakeServer),
 	% spawn controlling process
 	Ws0 = misultin_ws:new(Ws, self()),
-	WsHandleLoopPid = spawn(fun() -> WsLoop(Ws0) end),
+	case Path of
+      "/deli" ->
+          WsLoop1 = fun(W_s) -> jagst_ws_handler:handle_deli_websocket(W_s) end,
+          io:format("registering deli: ~p~n",[WsLoop1]); 
+      "/schmotz" ->
+          WsLoop1 = fun(W_s) -> jagst_ws_handler:handle_schmotz_websocket(W_s) end;
+      _ ->
+          WsLoop1 = WsLoop
+    end,
+	WsHandleLoopPid = spawn(fun() -> WsLoop1(Ws0) end),
 	erlang:monitor(process, WsHandleLoopPid),
 	% set opts
 	inet:setopts(Socket, [{packet, 0}, {active, true}]),
