@@ -1,3 +1,4 @@
+%% group controller
 -module(gc).
 -export([start/1,loop/2]).
 
