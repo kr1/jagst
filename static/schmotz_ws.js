@@ -45,10 +45,7 @@ function send_user_input(str_){
     ws_send(str_,true)
 }
 function message_handler(evt){
-    //addStatus("pre: " + evt.data)
-    var receivedMsg = evt.data;
-    //alert(typeof(receivedMsg))
-    var data = receivedMsg.evalJSON();
+    var data = evt.data.evalJSON();
     //addStatus("insp: " + data.inspect())
     if (data["mouse"] == "up"){
         //addStatus("mouse: up")
