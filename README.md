@@ -36,7 +36,7 @@ we currently have two example applications, they follow different approaches:
     is a _subscription_ application in which the service gets created only upon requests 
     a user subscribes to a **delicious** (tm) tag or tag-combination and will receive new entries pushed to his browser (on the server there is a rss-polling process for every tag/combination active for a given moment)
 
-    ![requested service subscription](static/websocket_high_level__requested_service_subscription.png "requested service subscription")
+    ![requested service subscription](http://github.com/kr1/jagst/raw/master/static/websocket_high_level__requested_service_subscription.png "requested service subscription")
 
 
 INSTALL INSTRUCTIONS
