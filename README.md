@@ -2,8 +2,6 @@
 
 **JAGST - Websockets & Erlang** - Examples for Misultin websocket usage.  
 <http://github.com/kr1/jagst>
-  
-<br/>
 <code>  
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -13,8 +11,6 @@
 /////////////////////////
 
 </code>  
-  
-  <br/>
 ABOUT
 -----
 
