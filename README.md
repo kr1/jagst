@@ -29,7 +29,7 @@ we currently have two example applications, they follow different approaches:
     is a peer-(broad)-cast application where data travels from 1-to-many users.
     it is a collaborative painting application along the lines of http://colorillo.com, but much more basic and raw.
 
-    ![peer broad cast](./raw/master/static/websocket_high_level__peer_broad_cast.png "peer broad cast")
+    ![peer broad cast](http://github.com/kr1/jagst/raw/master/static/websocket_high_level__peer_broad_cast.png "peer broad cast")
 
 2.  **deli**
 
