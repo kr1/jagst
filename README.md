@@ -50,11 +50,11 @@ INSTALL INSTRUCTIONS
 
     * CD to the ebin directory: *cd ebin*
     * fire up an erlang shell: *erl*
-    * start the misultin server and jagst application on a specified port: jagst_ws_handler:start(8080)
+    * start the misultin and jagst on port 8080: jagst_ws_handler:start(8080)
     * Open a websocket-speaking browser (google chrome, e.g.) and point it to http://localhost:8080/schmotz for the **schmotz**-app OR http://localhost:8080/deli for the **deli**-app.
 
 
 DOCUMENTATION
 -------------
 
-Misultin's **API Documentation** is available online on the Misultin's wiki: [http://code.google.com/p/misultin/wiki/](http://code.google.com/p/misultin/wiki/ "misultin wiki")
+Misultin's **API Documentation** is available online on its wiki: [http://code.google.com/p/misultin/wiki/](http://code.google.com/p/misultin/wiki/ "misultin wiki")
