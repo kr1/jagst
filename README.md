@@ -1,3 +1,12 @@
+ATTENTION
+---------
+
+***Jagst*** is not actively developed anymore.  
+
+in the meantime there are a lot of solid solutions for _erlang & websockets_, as for instance:  
+[**cowboy**](http://ninenines.eu/docs/en/cowboy/HEAD/guide/introduction), which is actively developed on [https://github.com/extend/cowboy](https://github.com/extend/cowboy)
+<hr>
+
 ==========================================================================================================
 
 **JAGST - Websockets & Erlang** - Examples for Misultin websocket usage.  
