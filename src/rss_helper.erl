@@ -7,7 +7,7 @@
 -module(rss_helper).
 -export([getElementsByTagName/2, printItem/1, printItems/1, get_feed/1, all/2, director/1]).
 
--include("/usr/lib/erlang/lib/xmerl-1.1.10/include/xmerl.hrl").
+-include("../include/xmerl.hrl").
 -include("../include/jagst_deli.hrl").
 
 
